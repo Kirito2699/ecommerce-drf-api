@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-$b_5+%w!i(1=z+(hd5=i@it9ru$2r^1$ak9z(smf$dpkp1f$#b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'products.apps.ProductsConfig',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -107,6 +108,10 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 2,
+
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend'
+    ],
 }
 
 # Internationalization
